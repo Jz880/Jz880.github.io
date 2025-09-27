@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Personal Website</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 20px;
+      right: 30px;
+      display: flex;
+      gap: 25px;   /* spacing between items */
+      z-index: 1000;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    nav a.active {
+      font-weight: bold;
+      border-bottom: 2px solid #333;
+    }
+
+    /* Section styling */
+    section {
+      min-height: 100vh;
+      padding: 60px 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+
+#about {
+  display: flex;
+  gap: 40px;
+  align-items: center;       /* vertical centering */
+  justify-content: center;   /* horizontal centering (optional) */
+  min-height: 100vh;         /* full page height */
+  padding: 0 80px;           /* side padding */
+}
+
+
+#about .text {
+  flex: 2; /* 2/3 of the page */
+}
+
+#about .profile {
+  flex: 1; /* 1/3 of the page */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#about img {
+  width: 100%;   /* strictly 1/3 of page width */
+  height: auto;  /* keep aspect ratio */
+  border-radius: 10px;
+}
+
+#about .contact {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #555;
+  text-align: center;
+  line-height: 1.4;
+}
+
+
+#coursework {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 80px;
+}
+
+.course-list {
+  width: 100%;
+  max-width: 800px;
+}
+
+.course {
+  margin-bottom: 40px;
+}
+
+.course-title {
+  font-weight: bold;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.course-desc {
+  background-color: #f2f2f2;
+  padding: 15px;
+  border-radius: 6px;
+  font-size: 15px;
+  line-height: 1.4;
+}
+
+
+.project {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+.project-text {
+  flex: 2; /* left 2/3 width */
+}
+
+.project-image {
+  flex: 1; /* right 1/3 width */
+}
+
+.project-image img {
+  width: 100%; /* strictly 1/3 of page */
+  height: auto;
+  border-radius: 10px;
+  display: block;
+}
+
+.project-desc {
+  border-radius: 6px;
+  font-size: 15px;
+  line-height: 1.4;
+}
+
+.project-desc-bullets {
+  list-style-type: disc;
+  padding-left: 20px;
+  margin-top: 5px;
+}
+
+.project-desc-bullets li {
+  font-size: 15px;
+  line-height: 1.4;
+}
+
+
+
+h1 {
+  margin-bottom: 20px;
+}
+
+    
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <a href="#about" class="nav-link active">About Me</a>
+    <a href="#projects" class="nav-link">Course Projects</a>
+    <a href="#coursework" class="nav-link">Relevant Coursework</a>
+  </nav>
+
+  <!-- About Me Section -->
+<section id="about">
+  <div class="text">
+    <h1>About Me</h1>
+    <p>
+      Hi, I’m Juyuan Zhao, a Computer Engineering student at Georgia Tech with a strong 
+      interest in VLSI and Computer Architecture, particularly in the field of physical design. 
+      I’m passionate about exploring how hardware systems are built from the ground up 
+      and how thoughtful design can push the limits of performance and efficiency.
+      <p>Outside of academics, I enjoy traveling and seeking new adventures. Scuba diving 
+      and paragliding have shown me there’s always more to discover—both in technology and 
+      in life—and I’m excited for the opportunities ahead to keep learning and exploring.
+      </p>
+
+
+
+    </p>
+  </div>
+
+  <div class="profile">
+    <img src="profilepic.JPG" alt="Your Photo">
+    <div class="contact">
+      <p>Email: zjean9@outlook.com</p>
+      <p>Phone: (678) 428-7457</p>
+    </div>
+  </div>
+</section>
+
+
+
+
+  <!-- Projects Section -->
+<section id="projects">
+  <div class="course-projects">
+    <h1>Course Projects</h1>
+
+    <!-- Project 1 -->
+    <div class="project">
+      <div class="project-text">
+        <div class="course-title">2035 Project: Missile Command on MBED</div>
+          <div class = "project-desc">
+            An embedded systems adaptation of Atari’s classic Missile Command on the MBED platform, 
+            combining low-level data structure programming with hardware interaction.</div>
+        
+        <ul class="project-desc-bullets">
+          <li>Implemented a doubly linked list in C to manage dynamic game objects (e.g., missiles, anti-missiles) with functions for insertion, deletion, and memory cleanup.</li>
+          <li>Programmed real-time player controls using the MBED Nav Switch for aircraft movement and missile firing.</li>
+          <li>Built a collision detection system to handle missile interception, city destruction, and aircraft damage, with visual feedback via uLCD graphics.</li>
+          <li>Designed and optimized game state management, including score tracking, level progression, and Game Over conditions.</li>
+          <li>Ensured proper dynamic memory management to prevent leaks on the constrained embedded system.</li>
+          <li>Integrated USB Serial Debugging for real-time logging and incremental development.</li>
+        </ul>
+      </div>
+      <!-- <div class="project-image">
+        <img src="2035project.png" alt="Missile Command on MBED">
+      </div> -->
+    </div>
+
+    <!-- Project 2 -->
+    <div class="project">
+      <div class="project-text">
+        <div class="course-title">2031 Project: SCOMP Peripheral Design</div>
+          <div class = "project-desc">
+            A custom peripheral was designed in VHDL for the SCOMP processor system on the DE10 FPGA 
+            platform to control four independent hobby servo motors. The project emphasized 
+            hardware-software co-design, integrating digital logic design, system-level I/O management, 
+            and minimal assembly for testing.</div>
+        
+        <ul class="project-desc-bullets">
+          <li>Implemented a servo control peripheral capable of driving four motors simultaneously with step increments under 2°.</li>
+          <li>Designed pulse-width generation logic to translate CPU commands into precise servo control signals, ensuring safe operation within 0.6–2.4 ms ranges.</li>
+          <li>Extended the I/O decoder to map a dedicated address for the new device and route commands through the shared data bus.</li>
+          <li>Integrated the peripheral into the SCOMP schematic, with connections for clocking, reset, and I/O control signals.</li>
+          <li>Wrote test assembly programs to send commands, validate servo responses, and provide user feedback through switches and LEDs.</li>
+          <li>Verified functionality via oscilloscope at multiple test points, measuring pulse widths, resolution, and timing accuracy.</li>
+        </ul>
+      </div>
+      <!-- <div class="project-image">
+        <img src="[project2-image.png]" alt="Project 2 Image">
+      </div> -->
+    </div>
+
+  </div>
+</section>
+
+
+
+
+
+<!-- Coursework Section -->
+<section id="coursework">
+  <div class="course-list">
+    <h1>Relevant Coursework</h1>
+
+    <div class="course">
+      <div class="course-title">ECE 3058 – Architecture, Systems, Concurrency and Energy in Computation</div>
+      <div class="course-desc">
+        <!-- This course covers the fundamental organization of modern processors, including the core, 
+        memory hierarchy, and I/O subsystems. It examines sources of performance and energy dissipation,
+         as well as the use of parallelism to achieve performance gains. The course also introduces 
+         operating system concepts such as threads and networks, with simulator-based assignments 
+         to analyze tradeoffs in performance and energy efficiency. -->
+         This course explores the organization of modern processors, including cores, memory hierarchies, and I/O subsystems. It covers performance and energy considerations, parallelism, and introduces OS concepts like threads and networks, with simulator-based assignments to analyze tradeoffs.
+
+      </div>
+    </div>
+
+    <div class="course">
+      <div class="course-title">ECE 3030 – Physical Foundations of Computer Engineering</div>
+      <div class="course-desc">
+        <!-- This course explores the physical principles underlying computation, focusing on how digital 
+        information is represented, processed, and stored using electronic devices. It emphasizes 
+        the operation and characteristics of MOSFETs, CMOS inverters, and the factors that determine 
+        speed and energy dissipation in circuits. The course also covers major memory technologies, 
+        including SRAM, DRAM, and FLASH, with discussions on fabrication and emerging computing technologies. -->
+        This course covers the physical principles of computation, including how digital information is represented, processed, and stored. It focuses on MOSFETs, CMOS inverters, circuit speed and energy, and major memory technologies like SRAM, DRAM, and FLASH, with insights into fabrication and emerging computing technologies.
+
+      </div>
+    </div>
+
+    <div class="course">
+      <div class="course-title">ECE 3150 – VLSI and Advanced Digital Design</div>
+      <div class="course-desc">
+        <!-- This course covers advanced digital design concepts within VLSI systems, spanning from architectural 
+        modeling to circuit-level simulation. It emphasizes CMOS technology, transistor-level gate design, 
+        and optimized gate sizing to minimize delay. Students learn to design, simulate, and test complex circuits, 
+        including adders, multipliers, and synchronized datapaths, while addressing system-level considerations 
+        such as interconnect delay, floorplanning, and power distribution. -->
+        This course covers advanced digital design in VLSI, from architectural modeling to circuit simulation. It emphasizes CMOS technology, transistor-level gate design, and optimized sizing, with projects on adders, multipliers, and synchronized datapaths, addressing interconnect delay, floorplanning, and power distribution.
+
+      </div>
+    </div>
+
+    <div class="course">
+      <div class="course-title">ECE 2031 – Digital Design Laboratory</div>
+      <div class="course-desc">
+        <!-- This course provides practical laboratory experience in digital system design, 
+        focusing on combinational and sequential logic, FPGA implementation, 
+        and assembly language programming. It covers the use of CAD tools for schematic design,
+         simulation, logic synthesis, and VHDL-based circuit development.  -->
+         This course offers hands-on experience in digital system design, covering combinational and sequential logic, FPGA implementation, assembly programming, and CAD tools for simulation, synthesis, and VHDL development.
+      </div>
+    </div>
+
+    <div class="course">
+      <div class="course-title">ECE 2035 – Programming for Hardware/Software Systems</div>
+      <div class="course-desc">
+        <!-- This course focuses on the execution and storage mechanisms that support high-level 
+        programming languages and operating systems, with an emphasis on design principles. 
+        It covers C programming and MIPS assembly language to illustrate how constructs are 
+        implemented on hardware platforms. Through lectures and design projects, the course 
+        develops skills in system-level software design, performance evaluation, and the use 
+        of common development and debugging tools. -->
+This course examines how hardware supports high-level languages and operating systems, using C and MIPS assembly to illustrate implementation, with lectures and projects developing skills in system-level software design, performance evaluation, and debugging.
+      </div>
+    </div>
+
+    <div class="course">
+      <div class="course-title">ECE 2026 – Introduction to Signal Processing</div>
+      <div class="course-desc">
+        <!-- This course introduces fundamental concepts of discrete-time signals and systems, 
+        including sampling, aliasing, and the use of digital filters. It covers Fourier 
+        analysis techniques such as the DTFT, DFT, and DFS, along with the Z-transform and 
+        its applications across time, frequency, and Z domains. Laboratory work reinforces 
+        theory through MATLAB-based projects in areas such as audio synthesis, image processing, 
+        filtering, and biomedical signal analysis. -->
+        This course introduces discrete-time signals and systems, covering sampling, aliasing, digital filters, Fourier analysis (DTFT, DFT, DFS), and the Z-transform. MATLAB-based labs apply these concepts to audio, image, and biomedical signal processing.
+
+      </div>
+    </div>
+
+
+
+  </div>
+</section>
+
+
+
+
+
+
+  <!-- JS for active nav highlight -->
+  <script>
+    const sections = document.querySelectorAll("section");
+    const navLinks = document.querySelectorAll(".nav-link");
+
+    window.addEventListener("scroll", () => {
+      let current = "";
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 80;
+        const sectionHeight = section.clientHeight;
+        if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+          current = section.getAttribute("id");
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove("active");
+        if (link.getAttribute("href") === "#" + current) {
+          link.classList.add("active");
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
