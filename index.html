@@ -12,13 +12,12 @@
       scroll-behavior: smooth;
     }
 
-    /* Navigation */
     nav {
       position: fixed;
       top: 20px;
       right: 30px;
       display: flex;
-      gap: 25px;   /* spacing between items */
+      gap: 25px;  
       z-index: 1000;
     }
 
@@ -34,7 +33,6 @@
       border-bottom: 2px solid #333;
     }
 
-    /* Section styling */
     section {
       min-height: 100vh;
       padding: 60px 80px;
@@ -44,130 +42,128 @@
     }
 
 
-#about {
-  display: flex;
-  gap: 40px;
-  align-items: center;       /* vertical centering */
-  justify-content: center;   /* horizontal centering (optional) */
-  min-height: 100vh;         /* full page height */
-  padding: 0 80px;           /* side padding */
-}
+    #about {
+      display: flex;
+      gap: 40px;
+      align-items: center;       
+      justify-content: center;   
+      min-height: 100vh;        
+      padding: 0 80px;        
+    }
 
 
-#about .text {
-  flex: 2; /* 2/3 of the page */
-}
+    #about .text {
+      flex: 2;
+    }
 
-#about .profile {
-  flex: 1; /* 1/3 of the page */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+    #about .profile {
+      flex: 1; 
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
 
-#about img {
-  width: 100%;   /* strictly 1/3 of page width */
-  height: auto;  /* keep aspect ratio */
-  border-radius: 10px;
-}
+    #about img {
+      width: 100%;   
+      height: auto; 
+      border-radius: 10px;
+    }
 
-#about .contact {
-  margin-top: 10px;
-  font-size: 14px;
-  color: #555;
-  text-align: center;
-  line-height: 1.4;
-}
-
-
-#coursework {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding: 80px;
-}
-
-.course-list {
-  width: 100%;
-  max-width: 800px;
-}
-
-.course {
-  margin-bottom: 40px;
-}
-
-.course-title {
-  font-weight: bold;
-  font-size: 18px;
-  margin-bottom: 10px;
-}
-
-.course-desc {
-  background-color: #f2f2f2;
-  padding: 15px;
-  border-radius: 6px;
-  font-size: 15px;
-  line-height: 1.4;
-}
+    #about .contact {
+      margin-top: 10px;
+      font-size: 14px;
+      color: #555;
+      text-align: center;
+      line-height: 1.4;
+    }
 
 
-.project {
-  display: flex;
-  gap: 40px;
-  align-items: flex-start;
-}
+    #coursework {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 80px;
+    }
 
-.project-text {
-  flex: 2; /* left 2/3 width */
-}
+    .course-list {
+      width: 100%;
+      max-width: 800px;
+    }
 
-.project-image {
-  flex: 1; /* right 1/3 width */
-}
+    .course {
+      margin-bottom: 40px;
+    }
 
-.project-image img {
-  width: 100%; /* strictly 1/3 of page */
-  height: auto;
-  border-radius: 10px;
-  display: block;
-}
+    .course-title {
+      font-weight: bold;
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
 
-.project-desc {
-  border-radius: 6px;
-  font-size: 15px;
-  line-height: 1.4;
-}
-
-.project-desc-bullets {
-  list-style-type: disc;
-  padding-left: 20px;
-  margin-top: 5px;
-}
-
-.project-desc-bullets li {
-  font-size: 15px;
-  line-height: 1.4;
-}
+    .course-desc {
+      background-color: #f2f2f2;
+      padding: 15px;
+      border-radius: 6px;
+      font-size: 15px;
+      line-height: 1.4;
+    }
 
 
+    .project {
+      display: flex;
+      gap: 40px;
+      align-items: flex-start;
+    }
 
-h1 {
-  margin-bottom: 20px;
-}
+    .project-text {
+      flex: 2;
+    }
+
+    .project-image {
+      flex: 1;
+    }
+
+    .project-image img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      display: block;
+    }
+
+    .project-desc {
+      border-radius: 6px;
+      font-size: 15px;
+      line-height: 1.4;
+    }
+
+    .project-desc-bullets {
+      list-style-type: disc;
+      padding-left: 20px;
+      margin-top: 5px;
+    }
+
+    .project-desc-bullets li {
+      font-size: 15px;
+      line-height: 1.4;
+    }
+
+
+
+    h1 {
+      margin-bottom: 20px;
+    }
 
     
   </style>
 </head>
 <body>
 
-  <!-- Navigation -->
   <nav>
     <a href="#about" class="nav-link active">About Me</a>
     <a href="#projects" class="nav-link">Course Projects</a>
     <a href="#coursework" class="nav-link">Relevant Coursework</a>
   </nav>
 
-  <!-- About Me Section -->
 <section id="about">
   <div class="text">
     <h1>About Me</h1>
@@ -180,8 +176,6 @@ h1 {
       and paragliding have shown me there’s always more to discover—both in technology and 
       in life—and I’m excited for the opportunities ahead to keep learning and exploring.
       </p>
-
-
 
     </p>
   </div>
@@ -198,12 +192,10 @@ h1 {
 
 
 
-  <!-- Projects Section -->
 <section id="projects">
   <div class="course-projects">
     <h1>Course Projects</h1>
 
-    <!-- Project 1 -->
     <div class="project">
       <div class="project-text">
         <div class="course-title">2035 Project: Missile Command on MBED</div>
@@ -225,7 +217,6 @@ h1 {
       </div> -->
     </div>
 
-    <!-- Project 2 -->
     <div class="project">
       <div class="project-text">
         <div class="course-title">2031 Project: SCOMP Peripheral Design</div>
@@ -256,7 +247,6 @@ h1 {
 
 
 
-<!-- Coursework Section -->
 <section id="coursework">
   <div class="course-list">
     <h1>Relevant Coursework</h1>
@@ -348,7 +338,6 @@ This course examines how hardware supports high-level languages and operating sy
 
 
 
-  <!-- JS for active nav highlight -->
   <script>
     const sections = document.querySelectorAll("section");
     const navLinks = document.querySelectorAll(".nav-link");
