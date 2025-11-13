@@ -94,6 +94,45 @@
       margin-bottom: 40px;
     }
 
+    /* Course image layout */
+    .course-row {
+      display: flex;
+      flex-direction: row;
+      gap: 20px;
+      align-items: flex-start;
+      flex-wrap: nowrap;
+    }
+
+    .course-row .course-desc {
+      flex: 1 1 auto;
+      min-width: 0; /* allow shrinking */
+    }
+
+    .course-item-image {
+      flex: 0 0 320px; /* fixed image column on the right */
+    }
+
+    .course-item-image img {
+      max-width: 320px;
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+    }
+
+    /* Responsive: stack on small screens */
+    @media (max-width: 720px) {
+      .course-row {
+        flex-direction: column;
+        flex-wrap: wrap;
+      }
+
+      .course-item-image {
+        flex: 0 0 auto;
+        max-width: 100%;
+      }
+    }
+
     .course-title {
       font-weight: bold;
       font-size: 18px;
@@ -119,16 +158,42 @@
       flex: 2;
     }
 
-    /* .project-image {
+    .project-image {
       flex: 1;
-    } */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
 
-    /* .project-image img {
+    .project-image img {
       width: 100%;
+      max-width: 320px;
       height: auto;
-      border-radius: 10px;
+      border-radius: 8px;
       display: block;
-    } */
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    }
+
+    .project-caption {
+      margin-top: 8px;
+      font-size: 14px;
+      color: #555;
+      text-align: center;
+    }
+    /* Support multiple thumbnails in a project-image block */
+    .project-image.multiple {
+      gap: 12px;
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .project-image.multiple img {
+      max-width: 200px;
+    }
 
     .project-desc {
       border-radius: 6px;
@@ -151,16 +216,115 @@
       margin-bottom: 20px;
     }
 
+    #intro {
+      background: linear-gradient(135deg, #f5f5f5 0%, #ffffff 100%);
+      text-align: center;
+    }
+
+    .intro-content {
+      max-width: 700px;
+    }
+
+    .intro-text {
+      font-size: 16px;
+      line-height: 1.8;
+      color: #444;
+    }
+
+    /* Resume section styles */
+    #resume {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 60px 80px 80px 80px;
+      gap: 18px;
+      background: #ffffff;
+    }
+
+    .resume-content {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .resume-actions {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .resume-actions a.button {
+      padding: 10px 14px;
+      background: #333;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: 500;
+    }
+
+    .resume-embed {
+      width: 100%;
+      max-width: 1000px;
+      height: 1000px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+    }
+
+    /* HTML resume styles */
+    .resume-html {
+      width: 100%;
+      max-width: 900px;
+      text-align: left;
+      border: 1px solid #eee;
+      border-radius: 6px;
+      padding: 24px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+      background: #fff;
+    }
+
+    .resume-html h2 { margin: 0 0 6px 0; }
+    .resume-html .meta { color: #666; font-size: 14px; margin-bottom: 12px; }
+    .resume-section { margin-top: 12px; }
+    .resume-section h3 { margin: 6px 0; font-size: 15px; }
+    .resume-list { margin: 6px 0 0 18px; }
+
+    .resume-toggle-btn {
+      padding: 8px 12px;
+      background: #fff;
+      color: #333;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .resume-toggle-btn.active { background: #333; color: #fff; border-color: #333; }
+
     
   </style>
 </head>
 <body>
 
   <nav>
-    <a href="#about" class="nav-link active">About Me</a>
+    <a href="#intro" class="nav-link active">Home</a>
+    <a href="#about" class="nav-link">About Me</a>
     <a href="#projects" class="nav-link">Course Projects</a>
+    <a href="#resume" class="nav-link">Resume</a>
+    <a href="#career-goals" class="nav-link">Career Goals</a>
     <a href="#coursework" class="nav-link">Relevant Coursework</a>
   </nav>
+ 
+<section id="intro">
+  <div class="intro-content">
+    <h1>Welcome</h1>
+    <p class="intro-text">
+      I'm a Computer Engineering student at Georgia Tech specializing in VLSI and Computer Architecture. 
+      My passion lies in physical design and building efficient hardware systems from the ground up. 
+      Explore my work to see how I apply hardware design principles, low-level programming, 
+      and problem-solving across embedded systems, digital design, and signal processing.
+    </p>
+  </div>
+</section>
 
 <section id="about">
   <div class="text">
@@ -190,6 +354,8 @@
 
 
 
+
+
 <section id="projects">
   <div class="course-projects">
     <h1>Course Projects</h1>
@@ -210,9 +376,16 @@
           <li>Integrated USB Serial Debugging for real-time logging and incremental development.</li>
         </ul>
       </div>
-      <!-- <div class="project-image">
-        <img src="2035project.png" alt="Missile Command on MBED">
-      </div> -->
+      <div class="project-image">
+          <figure>
+            <img src="IMG_8178.jpg" alt="Missile Command (detail)">
+            <figcaption class="project-caption">Missile Command on MBED</figcaption>
+          </figure>
+          <figure>
+            <img src="IMG_5679.jpg" alt="Missile Command on MBED">
+            <figcaption class="project-caption">Missile Command (detail)</figcaption>
+          </figure>
+      </div>
     </div>
     <br>
 
@@ -234,9 +407,12 @@
           <li>Verified functionality via oscilloscope at multiple test points, measuring pulse widths, resolution, and timing accuracy.</li>
         </ul>
       </div>
-      <!-- <div class="project-image">
-        <img src="[project2-image.png]" alt="Project 2 Image">
-      </div> -->
+      <div class="project-image">
+        <figure>
+          <img src="IMG_6764.JPG" alt="SCOMP Peripheral Design">
+          <figcaption class="project-caption">SCOMP Peripheral Design</figcaption>
+        </figure>
+      </div>
     </div>
 
   </div>
@@ -244,6 +420,38 @@
 
 
 
+<section id="resume">
+  <div class="resume-content">
+    <h1>Resume</h1>
+
+    <!-- PDF viewer (default) -->
+    <iframe id="resume-pdf" class="resume-embed" src="1100resume.pdf">Your browser does not support embedded PDFs. <a href="1100resume.pdf">Download the resume</a>.</iframe>
+  </div>
+</section>
+
+<section id="career-goals">
+  <div class="career-content" style="max-width:900px; padding:40px;">
+    <h1>Career Goals</h1>
+    <p>
+      My long-term goal is to become a leading engineer in VLSI and physical design, focusing on creating
+      high-performance, energy-efficient hardware for compute-intensive systems. I aim to work on place-and-route,
+      timing closure, and power optimization for advanced process nodes, and eventually lead a small design team or
+      contribute to architectural research that bridges circuit-level innovations with system performance.
+    </p>
+
+    <h3>Planned steps to get there</h3>
+    <ol>
+      <li><strong>Deepen technical skills:</strong> Complete advanced VLSI and physical design coursework (ECE 3150+), learn industry tools (Cadence, Synopsys flows), and practice transistor-level design and optimization.</li>
+      <li><strong>Hands-on experience:</strong> Pursue internships in ASIC/FPGA design or physical design groups to gain toolflow and tapeout experience; contribute to open-source hardware projects or campus research to build practical expertise.</li>
+      <li><strong>Networking & mentoring:</strong> Attend conferences (ISPD/DAC), connect with engineers and researchers, and find mentors who can advise on design decisions and career choices.</li>
+      <li><strong>Advanced study / specialization:</strong> Consider a focused MS or research role if aiming for specialized R&D positions; otherwise target entry-level roles in physical design or backend engineering and grow through on-the-job experience.</li>
+    </ol>
+
+    <p>
+      From here: I will leverage my current coursework and projects (embedded systems, VHDL peripherals, and digital design labs) to secure internships this coming summer, prioritize learning common physical-design flows, and publish concise project write-ups on this portfolio to demonstrate impact. Over the next 3–5 years I expect to move from intern → engineer → senior engineer with demonstrable tapeouts or backend optimizations in my track record.
+    </p>
+  </div>
+</section>
 
 
 <section id="coursework">
@@ -278,13 +486,15 @@
 
     <div class="course">
       <div class="course-title">ECE 3150 – VLSI and Advanced Digital Design</div>
-      <div class="course-desc">
-        <!-- This course covers advanced digital design concepts within VLSI systems, spanning from architectural 
-        modeling to circuit-level simulation. It emphasizes CMOS technology, transistor-level gate design, 
-        and optimized gate sizing to minimize delay. Students learn to design, simulate, and test complex circuits, 
-        including adders, multipliers, and synchronized datapaths, while addressing system-level considerations 
-        such as interconnect delay, floorplanning, and power distribution. -->
-        This course covers advanced digital design in VLSI, from architectural modeling to circuit simulation. It emphasizes CMOS technology, transistor-level gate design, and optimized sizing, with projects on adders, multipliers, and synchronized datapaths, addressing interconnect delay, floorplanning, and power distribution.
+        <div class="course-row">
+          <div class="course-desc">
+            This course covers advanced digital design in VLSI, from architectural modeling to circuit simulation. It emphasizes CMOS technology, transistor-level gate design, and optimized sizing, with projects on adders, multipliers, and synchronized datapaths, addressing interconnect delay, floorplanning, and power distribution.
+          </div>
+
+          <div class="course-item-image">
+            <img src="invLayout.png" alt="invLayout - layout example">
+          </div>
+        </div>
 
       </div>
     </div>
@@ -358,6 +568,9 @@ This course examines how hardware supports high-level languages and operating sy
         }
       });
     });
+
+    // Resume view toggle - removed
+    // HTML resume display is no longer available
   </script>
 
 </body>
