@@ -1,0 +1,577 @@
+<index html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Personal Website</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    nav {
+      position: fixed;
+      top: 20px;
+      right: 30px;
+      display: flex;
+      gap: 25px;  
+      z-index: 1000;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    nav a.active {
+      font-weight: bold;
+      border-bottom: 2px solid #333;
+    }
+
+    section {
+      min-height: 100vh;
+      padding: 60px 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+
+    #about {
+      display: flex;
+      gap: 40px;
+      align-items: center;       
+      justify-content: center;   
+      min-height: 100vh;        
+      padding: 0 80px;        
+    }
+
+
+    #about .text {
+      flex: 2;
+    }
+
+    #about .profile {
+      flex: 1; 
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    #about img {
+      width: 100%;   
+      height: auto; 
+      border-radius: 10px;
+    }
+
+    #about .contact {
+      margin-top: 10px;
+      font-size: 14px;
+      color: #555;
+      text-align: center;
+      line-height: 1.4;
+    }
+
+
+    #coursework {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 80px;
+    }
+
+    .course-list {
+      width: 100%;
+      /* max-width: 800px; */
+    }
+
+    .course {
+      margin-bottom: 40px;
+    }
+
+    /* Course image layout */
+    .course-row {
+      display: flex;
+      flex-direction: row;
+      gap: 20px;
+      align-items: flex-start;
+      flex-wrap: nowrap;
+    }
+
+    .course-row .course-desc {
+      flex: 1 1 auto;
+      min-width: 0; /* allow shrinking */
+    }
+
+    .course-item-image {
+      flex: 0 0 320px; /* fixed image column on the right */
+    }
+
+    .course-item-image img {
+      max-width: 320px;
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+    }
+
+    /* Responsive: stack on small screens */
+    @media (max-width: 720px) {
+      .course-row {
+        flex-direction: column;
+        flex-wrap: wrap;
+      }
+
+      .course-item-image {
+        flex: 0 0 auto;
+        max-width: 100%;
+      }
+    }
+
+    .course-title {
+      font-weight: bold;
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .course-desc {
+      background-color: #f2f2f2;
+      padding: 15px;
+      border-radius: 6px;
+      font-size: 15px;
+      line-height: 1.4;
+    }
+
+
+    .project {
+      display: flex;
+      gap: 40px;
+      align-items: flex-start;
+    }
+
+    .project-text {
+      flex: 2;
+    }
+
+    .project-image {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .project-image img {
+      width: 100%;
+      max-width: 320px;
+      height: auto;
+      border-radius: 8px;
+      display: block;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    }
+
+    .project-caption {
+      margin-top: 8px;
+      font-size: 14px;
+      color: #555;
+      text-align: center;
+    }
+    /* Support multiple thumbnails in a project-image block */
+    .project-image.multiple {
+      gap: 12px;
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .project-image.multiple img {
+      max-width: 200px;
+    }
+
+    .project-desc {
+      border-radius: 6px;
+      font-size: 15px;
+      line-height: 1.4;
+    }
+
+    .project-desc-bullets {
+      list-style-type: disc;
+      padding-left: 20px;
+      margin-top: 5px;
+    }
+
+    .project-desc-bullets li {
+      font-size: 15px;
+      line-height: 1.4;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+    }
+
+    #intro {
+      background: linear-gradient(135deg, #f5f5f5 0%, #ffffff 100%);
+      text-align: center;
+    }
+
+    .intro-content {
+      max-width: 700px;
+    }
+
+    .intro-text {
+      font-size: 16px;
+      line-height: 1.8;
+      color: #444;
+    }
+
+    /* Resume section styles */
+    #resume {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 60px 80px 80px 80px;
+      gap: 18px;
+      background: #ffffff;
+    }
+
+    .resume-content {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .resume-actions {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .resume-actions a.button {
+      padding: 10px 14px;
+      background: #333;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: 500;
+    }
+
+    .resume-embed {
+      width: 100%;
+      max-width: 1000px;
+      height: 1000px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+    }
+
+    /* HTML resume styles */
+    .resume-html {
+      width: 100%;
+      max-width: 900px;
+      text-align: left;
+      border: 1px solid #eee;
+      border-radius: 6px;
+      padding: 24px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+      background: #fff;
+    }
+
+    .resume-html h2 { margin: 0 0 6px 0; }
+    .resume-html .meta { color: #666; font-size: 14px; margin-bottom: 12px; }
+    .resume-section { margin-top: 12px; }
+    .resume-section h3 { margin: 6px 0; font-size: 15px; }
+    .resume-list { margin: 6px 0 0 18px; }
+
+    .resume-toggle-btn {
+      padding: 8px 12px;
+      background: #fff;
+      color: #333;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .resume-toggle-btn.active { background: #333; color: #fff; border-color: #333; }
+
+    
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="#intro" class="nav-link active">Home</a>
+    <a href="#about" class="nav-link">About Me</a>
+    <a href="#projects" class="nav-link">Course Projects</a>
+    <a href="#resume" class="nav-link">Resume</a>
+    <a href="#career-goals" class="nav-link">Career Goals</a>
+    <a href="#coursework" class="nav-link">Relevant Coursework</a>
+  </nav>
+ 
+<section id="intro">
+  <div class="intro-content">
+    <h1>Welcome</h1>
+    <p class="intro-text">
+      I'm a Computer Engineering student at Georgia Tech specializing in VLSI and Computer Architecture. 
+      My passion lies in physical design and building efficient hardware systems from the ground up. 
+      Explore my work to see how I apply hardware design principles, low-level programming, 
+      and problem-solving across embedded systems, digital design, and signal processing.
+    </p>
+  </div>
+</section>
+
+<section id="about">
+  <div class="text">
+    <h1>About Me</h1>
+    <p>
+      Hi, I’m Juyuan Zhao, a Computer Engineering student at Georgia Tech with a strong 
+      interest in VLSI and Computer Architecture, particularly in the field of physical design. 
+      I’m passionate about exploring how hardware systems are built from the ground up 
+      and how thoughtful design can push the limits of performance and efficiency.
+      <p>Outside of academics, I enjoy traveling and seeking new adventures. Scuba diving 
+      and paragliding have shown me there’s always more to discover—both in technology and 
+      in life—and I’m excited for the opportunities ahead to keep learning and exploring.
+      </p>
+
+    </p>
+  </div>
+
+  <div class="profile">
+    <img src="profilepic.JPG" alt="Your Photo">
+    <div class="contact">
+      <p>Email: zjean9@outlook.com</p>
+      <p>Phone: (678) 428-7457</p>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+<section id="projects">
+  <div class="course-projects">
+    <h1>Course Projects</h1>
+
+    <div class="project">
+      <div class="project-text">
+        <div class="course-title">2035 Project: Missile Command on MBED</div>
+          <div class = "project-desc">
+            An embedded systems adaptation of Atari’s classic Missile Command on the MBED platform, 
+            combining low-level data structure programming with hardware interaction.</div>
+        
+        <ul class="project-desc-bullets">
+          <li>Implemented a doubly linked list in C to manage dynamic game objects (e.g., missiles, anti-missiles) with functions for insertion, deletion, and memory cleanup.</li>
+          <li>Programmed real-time player controls using the MBED Nav Switch for aircraft movement and missile firing.</li>
+          <li>Built a collision detection system to handle missile interception, city destruction, and aircraft damage, with visual feedback via uLCD graphics.</li>
+          <li>Designed and optimized game state management, including score tracking, level progression, and Game Over conditions.</li>
+          <li>Ensured proper dynamic memory management to prevent leaks on the constrained embedded system.</li>
+          <li>Integrated USB Serial Debugging for real-time logging and incremental development.</li>
+        </ul>
+      </div>
+      <div class="project-image">
+          <figure>
+            <img src="IMG_8178.jpg" alt="Missile Command (detail)">
+            <figcaption class="project-caption">Missile Command on MBED</figcaption>
+          </figure>
+          <figure>
+            <img src="IMG_5679.jpg" alt="Missile Command on MBED">
+            <figcaption class="project-caption">Missile Command (detail)</figcaption>
+          </figure>
+      </div>
+    </div>
+    <br>
+
+    <div class="project">
+      <div class="project-text">
+        <div class="course-title">2031 Project: SCOMP Peripheral Design</div>
+          <div class = "project-desc">
+            A custom peripheral was designed in VHDL for the SCOMP processor system on the DE10 FPGA 
+            platform to control four independent hobby servo motors. The project emphasized 
+            hardware-software co-design, integrating digital logic design, system-level I/O management, 
+            and minimal assembly for testing.</div>
+        
+        <ul class="project-desc-bullets">
+          <li>Implemented a servo control peripheral capable of driving four motors simultaneously with step increments under 2°.</li>
+          <li>Designed pulse-width generation logic to translate CPU commands into precise servo control signals, ensuring safe operation within 0.6–2.4 ms ranges.</li>
+          <li>Extended the I/O decoder to map a dedicated address for the new device and route commands through the shared data bus.</li>
+          <li>Integrated the peripheral into the SCOMP schematic, with connections for clocking, reset, and I/O control signals.</li>
+          <li>Wrote test assembly programs to send commands, validate servo responses, and provide user feedback through switches and LEDs.</li>
+          <li>Verified functionality via oscilloscope at multiple test points, measuring pulse widths, resolution, and timing accuracy.</li>
+        </ul>
+      </div>
+      <div class="project-image">
+        <figure>
+          <img src="IMG_6764.JPG" alt="SCOMP Peripheral Design">
+          <figcaption class="project-caption">SCOMP Peripheral Design</figcaption>
+        </figure>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+
+<section id="resume">
+  <div class="resume-content">
+    <h1>Resume</h1>
+
+    <!-- PDF viewer (default) -->
+    <iframe id="resume-pdf" class="resume-embed" src="1100resume.pdf">Your browser does not support embedded PDFs. <a href="1100resume.pdf">Download the resume</a>.</iframe>
+  </div>
+</section>
+
+<section id="career-goals">
+  <div class="career-content" style="max-width:900px; padding:40px;">
+    <h1>Career Goals</h1>
+    <p>
+      My long-term goal is to become a leading engineer in VLSI and physical design, focusing on creating
+      high-performance, energy-efficient hardware for compute-intensive systems. I aim to work on place-and-route,
+      timing closure, and power optimization for advanced process nodes, and eventually lead a small design team or
+      contribute to architectural research that bridges circuit-level innovations with system performance.
+    </p>
+
+    <h3>Planned steps to get there</h3>
+    <ol>
+      <li><strong>Deepen technical skills:</strong> Complete advanced VLSI and physical design coursework (ECE 3150+), learn industry tools (Cadence, Synopsys flows), and practice transistor-level design and optimization.</li>
+      <li><strong>Hands-on experience:</strong> Pursue internships in ASIC/FPGA design or physical design groups to gain toolflow and tapeout experience; contribute to open-source hardware projects or campus research to build practical expertise.</li>
+      <li><strong>Networking & mentoring:</strong> Attend conferences (ISPD/DAC), connect with engineers and researchers, and find mentors who can advise on design decisions and career choices.</li>
+      <li><strong>Advanced study / specialization:</strong> Consider a focused MS or research role if aiming for specialized R&D positions; otherwise target entry-level roles in physical design or backend engineering and grow through on-the-job experience.</li>
+    </ol>
+
+    <p>
+      From here: I will leverage my current coursework and projects (embedded systems, VHDL peripherals, and digital design labs) to secure internships this coming summer, prioritize learning common physical-design flows, and publish concise project write-ups on this portfolio to demonstrate impact. Over the next 3–5 years I expect to move from intern → engineer → senior engineer with demonstrable tapeouts or backend optimizations in my track record.
+    </p>
+  </div>
+</section>
+
+
+<section id="coursework">
+  <div class="course-list">
+    <h1>Relevant Coursework</h1>
+
+    <div class="course">
+      <div class="course-title">ECE 3058 – Architecture, Systems, Concurrency and Energy in Computation</div>
+      <div class="course-desc">
+        <!-- This course covers the fundamental organization of modern processors, including the core, 
+        memory hierarchy, and I/O subsystems. It examines sources of performance and energy dissipation,
+         as well as the use of parallelism to achieve performance gains. The course also introduces 
+         operating system concepts such as threads and networks, with simulator-based assignments 
+         to analyze tradeoffs in performance and energy efficiency. -->
+         This course explores the organization of modern processors, including cores, memory hierarchies, and I/O subsystems. It covers performance and energy considerations, parallelism, and introduces OS concepts like threads and networks, with simulator-based assignments to analyze tradeoffs.
+
+      </div>
+    </div>
+
+    <div class="course">
+      <div class="course-title">ECE 3030 – Physical Foundations of Computer Engineering</div>
+      <div class="course-desc">
+        <!-- This course explores the physical principles underlying computation, focusing on how digital 
+        information is represented, processed, and stored using electronic devices. It emphasizes 
+        the operation and characteristics of MOSFETs, CMOS inverters, and the factors that determine 
+        speed and energy dissipation in circuits. The course also covers major memory technologies, 
+        including SRAM, DRAM, and FLASH, with discussions on fabrication and emerging computing technologies. -->
+        This course covers the physical principles of computation, including how digital information is represented, processed, and stored. It focuses on MOSFETs, CMOS inverters, circuit speed and energy, and major memory technologies like SRAM, DRAM, and FLASH, with insights into fabrication and emerging computing technologies.
+
+      </div>
+    </div>
+
+    <div class="course">
+      <div class="course-title">ECE 3150 – VLSI and Advanced Digital Design</div>
+        <div class="course-row">
+          <div class="course-desc">
+            This course covers advanced digital design in VLSI, from architectural modeling to circuit simulation. It emphasizes CMOS technology, transistor-level gate design, and optimized sizing, with projects on adders, multipliers, and synchronized datapaths, addressing interconnect delay, floorplanning, and power distribution.
+          </div>
+
+          <div class="course-item-image">
+            <img src="invLayout.png" alt="invLayout - layout example">
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="course">
+      <div class="course-title">ECE 2031 – Digital Design Laboratory</div>
+      <div class="course-desc">
+        <!-- This course provides practical laboratory experience in digital system design, 
+        focusing on combinational and sequential logic, FPGA implementation, 
+        and assembly language programming. It covers the use of CAD tools for schematic design,
+         simulation, logic synthesis, and VHDL-based circuit development.  -->
+         This course offers hands-on experience in digital system design, covering combinational and sequential logic, FPGA implementation, assembly programming, and CAD tools for simulation, synthesis, and VHDL development.
+      </div>
+    </div>
+
+    <div class="course">
+      <div class="course-title">ECE 2035 – Programming for Hardware/Software Systems</div>
+      <div class="course-desc">
+        <!-- This course focuses on the execution and storage mechanisms that support high-level 
+        programming languages and operating systems, with an emphasis on design principles. 
+        It covers C programming and MIPS assembly language to illustrate how constructs are 
+        implemented on hardware platforms. Through lectures and design projects, the course 
+        develops skills in system-level software design, performance evaluation, and the use 
+        of common development and debugging tools. -->
+This course examines how hardware supports high-level languages and operating systems, using C and MIPS assembly to illustrate implementation, with lectures and projects developing skills in system-level software design, performance evaluation, and debugging.
+      </div>
+    </div>
+
+    <div class="course">
+      <div class="course-title">ECE 2026 – Introduction to Signal Processing</div>
+      <div class="course-desc">
+        <!-- This course introduces fundamental concepts of discrete-time signals and systems, 
+        including sampling, aliasing, and the use of digital filters. It covers Fourier 
+        analysis techniques such as the DTFT, DFT, and DFS, along with the Z-transform and 
+        its applications across time, frequency, and Z domains. Laboratory work reinforces 
+        theory through MATLAB-based projects in areas such as audio synthesis, image processing, 
+        filtering, and biomedical signal analysis. -->
+        This course introduces discrete-time signals and systems, covering sampling, aliasing, digital filters, Fourier analysis (DTFT, DFT, DFS), and the Z-transform. MATLAB-based labs apply these concepts to audio, image, and biomedical signal processing.
+
+      </div>
+    </div>
+
+
+
+  </div>
+</section>
+
+
+
+
+
+
+  <script>
+    const sections = document.querySelectorAll("section");
+    const navLinks = document.querySelectorAll(".nav-link");
+
+    window.addEventListener("scroll", () => {
+      let current = "";
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 80;
+        const sectionHeight = section.clientHeight;
+        if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+          current = section.getAttribute("id");
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove("active");
+        if (link.getAttribute("href") === "#" + current) {
+          link.classList.add("active");
+        }
+      });
+    });
+
+    // Resume view toggle - removed
+    // HTML resume display is no longer available
+  </script>
+
+</body>
+</html>
