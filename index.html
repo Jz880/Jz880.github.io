@@ -300,6 +300,82 @@
     }
     .resume-toggle-btn.active { background: #333; color: #fff; border-color: #333; }
 
+    /* Horizontal scroll gallery styles */
+    .gallery-container {
+      width: 100%;
+      margin-top: 30px;
+      margin-bottom: 30px;
+    }
+
+    .gallery-scroll {
+      display: flex;
+      overflow-x: auto;
+      gap: 20px;
+      padding: 15px 0;
+      scroll-behavior: smooth;
+    }
+
+    .gallery-scroll::-webkit-scrollbar {
+      height: 8px;
+    }
+
+    .gallery-scroll::-webkit-scrollbar-track {
+      background: #f1f1f1;
+      border-radius: 10px;
+    }
+
+    .gallery-scroll::-webkit-scrollbar-thumb {
+      background: #888;
+      border-radius: 10px;
+    }
+
+    .gallery-scroll::-webkit-scrollbar-thumb:hover {
+      background: #555;
+    }
+
+    .gallery-item {
+      flex: 0 0 250px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    /* .gallery-image {
+      width: 250px;
+      height: 200px;
+      background-color: #e0e0e0;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #999;
+      font-size: 14px;
+      text-align: center;
+    } */
+    .gallery-image {
+  width: 250px;
+  height: 200px;
+  background-color: #fff; /* ensure white background */
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #999;
+  font-size: 14px;
+  text-align: center;
+}
+
+    .gallery-subtitle {
+      font-size: 14px;
+      color: #555;
+      text-align: center;
+      max-width: 250px;
+      line-height: 1.4;
+    }
+
     
   </style>
 </head>
@@ -312,6 +388,7 @@
     <a href="#resume" class="nav-link">Resume</a>
     <a href="#career-goals" class="nav-link">Career Goals</a>
     <a href="#coursework" class="nav-link">Relevant Coursework</a>
+    <a href="#discovery-project" class="nav-link">Discovery Project</a>
   </nav>
  
 <section id="intro">
@@ -536,12 +613,123 @@ This course examines how hardware supports high-level languages and operating sy
 
       </div>
     </div>
-
-
-
   </div>
 </section>
 
+
+<section id="discovery-project">
+  <div class="discovery-content" style="max-width:900px; padding:40px;">
+    <h1>Discovery Project</h1>
+
+    <h2 style="margin-top: 30px; font-size: 18px; margin-bottom: 12px;">Project Idea</h2>
+    <p>
+      For my Discovery Project, my initial idea was to take a simple digital design—a synchronous binary counter—and push it through the full back-end implementation flow. While front-end RTL design is common in coursework, the full physical design (Place-and-Route) and sign-off flow is less frequently explored, especially at an undergraduate level. My goal was to understand how an RTL design becomes a manufacturable layout and to gain hands-on experience with industry-standard tools such as Innovus for design and Xcelium for functional verification.
+    </p>
+
+    <h2 style="margin-top: 30px; font-size: 18px; margin-bottom: 12px;">Project Progress</h2>
+    <p style="margin-bottom: 8px;">Using a PnR tool I completed:</p>
+    <ul style="padding-left: 20px; margin-top: 5px;">
+      <li>Floorplanning and power planning</li>
+      <li>Clock tree synthesis</li>
+      <li>Routing of nets</li>
+      <li>RC Extraction</li>
+    </ul>
+    <p style="margin-top: 12px;">
+      I iteratively refined timing constraints and routing to achieve clean timing with acceptable slack.
+      To ensure the layout was manufacturable and consistent with the original logical intent, I performed several sign-off checks:
+    </p>
+    <ul style="padding-left: 20px; margin-top: 8px;">
+      <li>Connectivity Check: Verified that all nets were correctly connected in the layout, ensuring there were no opens, shorts, or missing vias after routing..</li>
+      <li>Post-layout Simulation in Xcelium: Reran functional tests to confirm timing-accurate correctness.</li>
+    </ul>
+    <p style="margin-top: 12px;">
+      By the end of the term, I successfully validated that it functioned as intended.
+    </p>
+
+    <h2 style="margin-top: 30px; font-size: 18px; margin-bottom: 12px;">Project Successes and Challenges</h2>
+    
+    <h3 style="margin-top: 18px; font-size: 16px; margin-bottom: 10px; font-weight: bold;">Successes</h3>
+    <ul style="padding-left: 20px; margin-top: 5px;">
+      <li>Achieved a fully routed and sign-off-ready layout for the counter design.</li>
+      <li>Understood the end-to-end design flow.</li>
+    </ul>
+
+    <h3 style="margin-top: 18px; font-size: 16px; margin-bottom: 10px; font-weight: bold;">Challenges</h3>
+    <ul style="padding-left: 20px; margin-top: 5px;">
+      <li>Timing closure issues: My initial constraints caused hold violations after CTS. I needed several iterations to insert hold buffers.</li>
+      <li>Tool complexity: Need to learn the commands for different tools.</li>
+    </ul>
+
+    <div class="gallery-container">
+      <div class="gallery-scroll">
+        <div class="gallery-item">
+          <img src="图片 1.png" alt="Image description" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
+          <div class="gallery-subtitle">Add IO</div>
+        </div>
+        <div class="gallery-item">
+          <img src="图片 4.png" alt="Image description" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
+          <div class="gallery-subtitle">Add Power Ring, Stripes, and Rails</div>
+        </div>
+        <div class="gallery-item">
+          <img src="图片 5.png" alt="Image description" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
+          <div class="gallery-subtitle">Run Placement Optimization</div>
+        </div>
+        <div class="gallery-item">
+          <img src="图片 6.png" alt="Image description" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
+          <div class="gallery-subtitle">Route Nests</div>
+        </div>
+        <div class="gallery-item">
+<img src="图片 7.png" alt="Image description" style="width: 100%; height: 100%; object-fit: contain; background: #fff; border-radius: 8px;">          <div class="gallery-subtitle">Hold Time</div>
+        </div>
+                <div class="gallery-item">
+<img src="图片 8.png" alt="Image description" style="width: 100%; height: 100%; object-fit: contain; background: #fff; border-radius: 8px;">          <div class="gallery-subtitle">Setup Time</div>
+        </div>
+                        <div class="gallery-item">
+<img src="图片 10.png" alt="Image description" style="width: 100%; height: 100%; object-fit: contain; background: #fff; border-radius: 8px;">          <div class="gallery-subtitle">Run connectivity check on the deisgn</div>
+        </div>
+                <div class="gallery-item">
+<img src="图片 11.png" alt="Image description" style="width: 100%; height: 100%; object-fit: contain; background: #fff; border-radius: 8px;">          <div class="gallery-subtitle">Run Power Analysis</div>
+        </div>
+                <div class="gallery-item">
+          <img src="图片 13.png" alt="Image description" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
+          <div class="gallery-subtitle">Filter Cell Placement</div>
+        </div>
+                        <div class="gallery-item">
+          <img src="图片 14.png" alt="Image description" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
+          <div class="gallery-subtitle">Fix Hold Violationst</div>
+        </div>
+        <div class="gallery-item">
+<img src="图片 15.png" alt="Image description" style="width: 100%; height: 100%; object-fit: contain; background: #fff; border-radius: 8px;">          <div class="gallery-subtitle">Gate-Level Simulation</div>
+        </div>
+      </div>
+    </div>
+
+    <h2 style="margin-top: 30px; font-size: 18px; margin-bottom: 12px;">ECE Skills Gained</h2>
+    
+    <h3 style="margin-top: 18px; font-size: 16px; margin-bottom: 10px; font-weight: bold;">Technical Skills</h3>
+    <ul style="padding-left: 20px; margin-top: 5px;">
+      <li>Synthesis and constraint creation including SDC development.</li>
+      <li>Place and Route techniques such as floorplanning, placement, CTS, routing, and post-route timing optimization.</li>
+      <li>Sign-off verification including back-annotated simulation.</li>
+      <li>Understanding the full ASIC flow from behavioral description to manufacturable layout.</li>
+    </ul>
+
+    <h3 style="margin-top: 18px; font-size: 16px; margin-bottom: 10px; font-weight: bold;">Conceptual Understanding</h3>
+    <ul style="padding-left: 20px; margin-top: 5px;">
+      <li>Gained insight into clock distribution, parasitics, timing margins, and how physical design affects performance.</li>
+      <li>Learned how design rules relate to lithography and manufacturing constraints.</li>
+      <li>Understood the importance of iterative refinement and verification in large-scale chip design.</li>
+    </ul>
+
+    <h2 style="margin-top: 30px; font-size: 18px; margin-bottom: 12px;">Final Thoughts</h2>
+    <p>
+      Completing this project was both challenging and rewarding. It provided hands-on experience with industry-level tools and exposed me to the complexity of modern ASIC design flows. Seeing RTL code transformed into a physical layout reinforced my interest in the VLSI and digital design thread.
+    </p>
+    <p>
+      Working through issues such as timing closure and sign-off verification gave me a realistic sense of what back-end chip design entails. Because of this project, I feel more confident pursuing advanced coursework or even a career path in physical design or design verification.
+    </p>
+  </div>
+</section>
 
 
 
